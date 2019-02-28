@@ -50,7 +50,7 @@
               </div>
               <div v-else>
                 <center>
-                  <img src="../../assets/vn.jpg" class="image">
+                  <img src="../../assets/mv2.jpg" class="image">
                   <h3 class="test" style="font-family: 'Merriweather', serif">code by vunm</h3>
                 </center>
               </div>
