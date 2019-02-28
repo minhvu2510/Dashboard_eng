@@ -1,60 +1,8 @@
 <template>
-  <div style="padding: 2%">
-    <el-card shadow="never">
-      <div slot="header" class="clearfix" style="position: relative;">
-        <span style="font-weight: bold; font-size: 20px">Activity</span>
-      </div>
-      <el-table
-        :data="activety"
-        stripe
-        style="width: 100%">
-        <el-table-column
-          prop="timestamp"
-          label="Date_time"
-          width="180">
-        </el-table-column>
-        <el-table-column
-          prop="user"
-          label="User"
-          width="180">
-        </el-table-column>
-        <el-table-column
-          prop="method"
-          label="Method">
-          <template slot-scope="scope">
-            <div v-if="scope.row.method === 'DELETE'">
-              <el-tag size="mini" type="danger">{{scope.row.method}}</el-tag>
-            </div>
-            <div v-else-if="scope.row.method === 'POST'">
-              <el-tag size="mini" type="success">{{scope.row.method}}</el-tag>
-            </div>
-            <div v-else>
-              <el-tag size="mini" type="warning">{{scope.row.method}}</el-tag>
-            </div>
-            <!--<i class="el-icon-error"></i>-->
-          </template>
-        </el-table-column>
-        <el-table-column
-          prop="endpoint"
-          label="Endpoint">
-        </el-table-column>
-        <el-table-column
-          prop="description"
-          label="Description">
-        </el-table-column>
-      </el-table>
-      <div class="block" style="margin-top: 10px; text-align: right;">
-        <el-pagination
-          small
-          @current-change="handleCurrentChange"
-          style="color: #4b494e"
-          :current-page.sync="pag"
-          :page-size="15"
-          layout="total,prev, pager, next"
-          :total="total">
-        </el-pagination>
-      </div>
-    </el-card>
+  <div>
+    <iframe src="https://www.w3schools.com">
+      <p>Your browser does not support iframes.</p>
+    </iframe>
   </div>
 </template>
 

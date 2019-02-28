@@ -234,7 +234,6 @@
     },
     methods: {
       getdata() {
-        console.log(getToken() + '===========++++++++++++++')
         const params = {
           start: moment(new Date().toDateString()).format('DD-MM-YYYY')
         }

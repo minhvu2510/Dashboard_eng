@@ -21,6 +21,13 @@ export function getExtention(params) {
     params
   })
 }
+export function getConfuse(params) {
+  return request({
+    url: '/confuse',
+    method: 'get',
+    params
+  })
+}
 export function userInfor(params) {
   return request({
     url: '/user',

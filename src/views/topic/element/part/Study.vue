@@ -7,9 +7,6 @@
             <el-card shadow="never">
               <div slot="header" class="clearfix" style="position: relative;">
                 <span style="font-weight: bold; font-size: 20px">Topic {{this.$route.params.nameTopic}}</span>
-                <!--<el-button @click="dialogFormVisible = true" size="mini" style="padding-left: 10px" type="primary"><i class="fas fa-plus-circle"></i> Thêm mới</el-button>-->
-                <!--<el-button @click="getdata()" type="primary" plain>Show level</el-button>-->
-                <!--<el-input-number style="width: 90px" size="mini" v-model="level2" controls-position="right" :min="1" :max="15"></el-input-number>-->
                 <div style="float: right">
                   <input type="text" v-if="edit" v-model="userTime">
                   <el-tag type="success">{{ minutes }}:{{ seconds }}</el-tag>
@@ -35,14 +32,6 @@
                           <el-radio v-model="radio" :label="i">{{i}}</el-radio>
                         </el-col>
                       </el-row>
-                      <!--<el-row style="padding-top: 50px">-->
-                      <!--<el-col :span="12">-->
-                      <!--<el-radio v-model="radio" label="3">Option A</el-radio>-->
-                      <!--</el-col>-->
-                      <!--<el-col :span="12">-->
-                      <!--<el-radio v-model="radio" label="4">Option A</el-radio>-->
-                      <!--</el-col>-->
-                      <!--</el-row>-->
                     </div>
                   </el-col>
                 </el-row>

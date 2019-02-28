@@ -63,7 +63,7 @@ new Vue({
   },
   created() {
     // this.$session.start()
-    // this.checkLogin()
+    this.checkLogin()
   },
   methods: {
     checkLogin() {
