@@ -80,7 +80,8 @@
         words: [],
         item: '',
         radio: '',
-        check: true
+        check: true,
+        answer: []
       }
     },
     mounted() {
@@ -99,6 +100,7 @@
       },
       checkAnser() {
         this.check_start = true
+        console.log(this.check_start)
         if (this.totalTime === (15 * 60)) {
           this.startTimer()
         }
@@ -110,7 +112,6 @@
         var y = Math.floor((Math.random() * 4) + 0)
         this.answer[y] = this.item.value
         for (const i in this.answer) {
-          console.log('===' + i)
           if (this.answer[i] === '') {
             var x1 = Math.floor((Math.random() * this.words.length) + 0)
             if (this.answer.indexOf(this.words[x1].value) < 0) {

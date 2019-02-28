@@ -13,7 +13,7 @@
   <!--</div>-->
   <div>
     <center>
-      <img src="../../assets/download.png" width="280" height="150"/>
+      <img src="../../assets/vunm.jpeg" width="300" height="170"/>
     </center>
     <center>
       <el-card class="box-card">

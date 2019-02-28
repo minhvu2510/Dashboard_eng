@@ -55,7 +55,7 @@ new Vue({
   store,
   template: '<App/>',
   watch: {
-    '$route': 'checkLogin'
+    '$route': 'checkLogin()'
   },
   components: { App },
   mounted() {

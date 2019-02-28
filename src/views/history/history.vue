@@ -1,8 +1,6 @@
 <template>
   <div>
-    <iframe src="https://www.w3schools.com">
-      <p>Your browser does not support iframes.</p>
-    </iframe>
+    <iframe src="https://www.toeicmoingay.com/" width="1300" height="2400" frameborder="0" ></iframe>
   </div>
 </template>
 
@@ -19,7 +17,7 @@
       }
     },
     mounted() {
-      this.get_method(this.pag)
+      // this.get_method(this.pag)
     },
     methods: {
       get_method(page) {

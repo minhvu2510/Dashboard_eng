@@ -26,18 +26,18 @@
             <span slot="title">Study by confuse</span>
           </el-menu-item>
         </router-link>
-        <router-link :to="'/dashboard'">
-          <el-menu-item index="listen">
-            <i class="fas fa-assistive-listening-systems"></i>
-            <span slot="title">Listen</span>
-          </el-menu-item>
-        </router-link>
-        <router-link :to="'/dashboard'">
-          <el-menu-item index="Read">
-            <i class="fab fa-readme"></i>
-            <span slot="title">Read</span>
-          </el-menu-item>
-        </router-link>
+        <!--<router-link :to="'/dashboard'">-->
+          <!--<el-menu-item index="listen">-->
+            <!--<i class="fas fa-assistive-listening-systems"></i>-->
+            <!--<span slot="title">Listen</span>-->
+          <!--</el-menu-item>-->
+        <!--</router-link>-->
+        <!--<router-link :to="'/dashboard'">-->
+          <!--<el-menu-item index="Read">-->
+            <!--<i class="fab fa-readme"></i>-->
+            <!--<span slot="title">Read</span>-->
+          <!--</el-menu-item>-->
+        <!--</router-link>-->
         <!--===========================================================-->
         <!--<el-submenu popper-class="vcc-pbx-menu" index="1" class="aaa">-->
           <!--<template slot="title">-->
@@ -182,17 +182,17 @@
             <!--<span slot="title">Packages</span>-->
           <!--</el-menu-item>-->
         <!--</router-link>-->
-        <router-link :to="'/addons'">
-          <el-menu-item index="addon">
-            <i class="fas fa-puzzle-piece"></i>
-            <span slot="title">Addons</span>
-          </el-menu-item>
-        </router-link>
+        <!--<router-link :to="'/addons'">-->
+          <!--<el-menu-item index="addon">-->
+            <!--<i class="fas fa-puzzle-piece"></i>-->
+            <!--<span slot="title">Addons</span>-->
+          <!--</el-menu-item>-->
+        <!--</router-link>-->
         <!--</el-submenu>-->
         <router-link :to="'/history'">
           <el-menu-item index="history">
             <i class="fas fa-history"></i>
-            <span slot="title">History</span>
+            <span slot="title">Study</span>
           </el-menu-item>
         </router-link>
       </template>
