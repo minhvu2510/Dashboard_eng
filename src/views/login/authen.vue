@@ -3,9 +3,21 @@
     <div class="wrapper fadeInDown">
       <div id="formContent">
         <div class="fadeIn first">
-          <img src="../../assets/logo2.png" height="200" width="200"/>
+          <img src="../../assets/vunm.jpeg" height="200" width="200"/>
         </div>
-        <input type="text" v-model="otp" class="fadeIn second" placeholder="OTP" @keyup.enter="sentOtp">
+        <el-input style="width: 70%" type="text" v-model="Name" class="fadeIn second" placeholder="Name" @keyup.enter="sentOtp"></el-input>
+        <el-input style="width: 70%;padding-top: 10px" type="text" v-model="Email" class="fadeIn second" placeholder="Email" @keyup.enter="sentOtp"></el-input>
+        <el-input
+          :type="pass"
+          style="padding-top: 10px;width: 70%"
+          size="medium"
+          placeholder="Pass">
+          <!--<i slot="suffix" class="el-input__icon el-icon-view" @click="aaa"></i>-->
+          <!--<i slot="suffix" class=" fas fa-eye" @click.native="aaa"></i>-->
+          <!--<i slot="suffix" class="el-input__icon fa fa-eye-slash" @click="aaa"><el-button slot="suffix" type="text" @click="aaa" style="color: #d3d3d3"></el-button></i>-->
+          <el-button v-show="check" slot="suffix" type="text" @click="aaa" style="color: #b4b4b4;padding-top: 15px"><i class="fas fa-eye"></i></el-button>
+          <el-button v-show="!check" slot="suffix" type="text" @click="aaa" style="color: #b4b4b4;padding-top: 15px"><i class="fas fa-eye-slash"></i></el-button>
+        </el-input>
         <input type="submit" class="fadeIn fourth" value="Confirm" @click="sentOtp">
       </div>
     </div>

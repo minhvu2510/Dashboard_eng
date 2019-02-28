@@ -6,7 +6,7 @@
           <el-col :xs="24" :sm="24" :md="24">
             <el-card shadow="never">
               <div slot="header" class="clearfix" style="position: relative;">
-                <span style="font-weight: bold; font-size: 20px">Study mix</span>
+                <span style="font-weight: bold; font-size: 20px">VN test</span>
                 <el-button @click="checkAnser()" type="primary">Start</el-button>
                 <el-tag type="success">{{ minutes }}:{{ seconds }}</el-tag>
                 <div style="float: right">
@@ -21,12 +21,12 @@
               <div v-if="check_start">
                 <!--<p>minhvu</p>-->
                 <!--<div v-for="i in vocab" :key="i.key">-->
-                  <!--<p>{{i.key}}</p>-->
+                <!--<p>{{i.key}}</p>-->
                 <!--</div>-->
                 <el-row :gutter="20" style="margin-left: 0!important; margin-right: 0!important">
                   <el-col :span="12">
                     <center>
-                      <h2>{{item.key}}</h2>
+                      <h2>{{item.value}}</h2>
                       <el-progress :percentage="percent" status="success"></el-progress>
                       <p>{{count}}</p>
                     </center>
@@ -50,7 +50,7 @@
               </div>
               <div v-else>
                 <center>
-                  <img src="../../assets/nmv.jpg" class="image">
+                  <img src="../../assets/vn.jpg" class="image">
                   <h3 class="test" style="font-family: 'Merriweather', serif">code by vunm</h3>
                 </center>
               </div>
@@ -65,7 +65,7 @@
 <script>
   import { getConfuse } from '@/api/department'
   export default {
-    name: 'confuse',
+    name: 'chose_en',
     data() {
       return {
         check_start: false,
@@ -110,16 +110,16 @@
         this.item = this.words[this.ramdom]
         console.log(this.item)
         var y = Math.floor((Math.random() * 4) + 0)
-        this.answer[y] = this.item.value
+        this.answer[y] = this.item.key
         for (const i in this.answer) {
           if (this.answer[i] === '') {
             var x1 = Math.floor((Math.random() * this.words.length) + 0)
-            if (this.answer.indexOf(this.words[x1].value) < 0) {
-              this.answer[i] = this.words[x1].value
+            if (this.answer.indexOf(this.words[x1].key) < 0) {
+              this.answer[i] = this.words[x1].key
             } else {
               for (let i1 = 0; i1 < this.words.length; i1++) {
-                if (this.answer.indexOf(this.words[i1].value) < 0) {
-                  this.answer[i] = this.words[i1].value
+                if (this.answer.indexOf(this.words[i1].key) < 0) {
+                  this.answer[i] = this.words[i1].key
                 }
               }
             }
@@ -135,7 +135,7 @@
         } else {
           this.percent = parseInt((this.count / (this.words.length + 7)) * 100)
           this.item = this.words[this.ramdom]
-          if (this.radio === this.item.value) {
+          if (this.radio === this.item.key) {
             this.count = this.count + 1
             this.$message({
               message: 'Congrats, this is a success message.',
@@ -144,7 +144,7 @@
             this.checkAnser()
           } else {
             this.$message({
-              message: 'Congrats, this is a success message.',
+              message: 'Congrats, có một sự nhầm lẫn ko hề nhẹ',
               type: 'warning'
             })
           }

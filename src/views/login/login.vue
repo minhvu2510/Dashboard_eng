@@ -50,7 +50,7 @@
         </div>
         <el-button slot="suffix" type="text" @click="aaa" style="color: #d3d3d3"><i class="fas fa-eye"></i></el-button>
         <center style="padding-top: 18px">
-          <span style="float: left;font-size: 14px;color: #727379">Chưa có tài khoản ? <el-button type="text">Đăng ký</el-button></span>
+          <span style="float: left;font-size: 14px;color: #727379">Chưa có tài khoản ? <el-button @click="register()" type="text">Đăng ký</el-button></span>
         </center>
       </el-card>
       <div class="box-card">
@@ -79,6 +79,9 @@
       }
     },
     methods: {
+      register() {
+        this.$router.push('/register')
+      },
       aaa() {
         if (this.password !== '') {
           this.check = !this.check

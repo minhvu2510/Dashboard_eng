@@ -189,6 +189,12 @@
           <!--</el-menu-item>-->
         <!--</router-link>-->
         <!--</el-submenu>-->
+        <router-link :to="'/chose'">
+          <el-menu-item index="listen">
+            <i class="fas fa-assistive-listening-systems"></i>
+            <span slot="title">Listen</span>
+          </el-menu-item>
+        </router-link>
         <router-link :to="'/history'">
           <el-menu-item index="history">
             <i class="fas fa-history"></i>
