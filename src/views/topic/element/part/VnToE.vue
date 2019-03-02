@@ -20,7 +20,7 @@
                 <el-row :gutter="20" style="margin-left: 0!important; margin-right: 0!important">
                   <el-col :span="12">
                     <center>
-                      <h2>{{item.key}}</h2>
+                      <h2>{{item.value}}</h2>
                       <el-progress :percentage="percent" status="success"></el-progress>
                       <p>{{count}}</p>
                     </center>
@@ -58,7 +58,7 @@
 
 <script>
   export default {
-    name: 'Study',
+    name: 'VnToE',
     data() {
       return {
         test: true,
@@ -135,17 +135,17 @@
         this.item = this.words[this.ramdom]
         console.log(this.item)
         var y = Math.floor((Math.random() * 4) + 0)
-        this.answer[y] = this.item.value
+        this.answer[y] = this.item.key
         for (const i in this.answer) {
           console.log('===' + i)
           if (this.answer[i] === '') {
             var x1 = Math.floor((Math.random() * this.words.length) + 0)
-            if (this.answer.indexOf(this.words[x1].value) < 0) {
-              this.answer[i] = this.words[x1].value
+            if (this.answer.indexOf(this.words[x1].key) < 0) {
+              this.answer[i] = this.words[x1].key
             } else {
               for (let i1 = 0; i1 < this.words.length; i1++) {
-                if (this.answer.indexOf(this.words[i1].value) < 0) {
-                  this.answer[i] = this.words[i1].value
+                if (this.answer.indexOf(this.words[i1].key) < 0) {
+                  this.answer[i] = this.words[i1].key
                 }
               }
             }
@@ -162,7 +162,7 @@
           this.count = this.count + 1
           this.percent = parseInt((this.count / (this.words.length + 7)) * 100)
           this.item = this.words[this.ramdom]
-          if (this.radio === this.item.value) {
+          if (this.radio === this.item.key) {
             this.$message({
               message: 'Congrats, this is a success message.',
               type: 'success'
@@ -217,66 +217,8 @@
 </script>
 
 <style scoped>
-  html {
-    font-size: 10px;
-  }
-
-  .container {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #222831;
-  }
-  .container #app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .container #app > * {
-    margin-bottom: 2rem;
-  }
-  .container .timer {
-    font-size: 9rem;
-    color: #EEEEEE;
-  }
-  .container .controls {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-  }
-  .container .controls > * {
-    color: #FD7014;
-    transition: 0.1s ease;
-  }
-  .container .controls > *:hover {
-    cursor: pointer;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  .container .input input {
-    background-color: #393E46;
-    border: none;
-    font-size: 2rem;
-    padding: 1em;
-    text-align: center;
-    color: #EEEEEE;
-  }
-  .container .input .fade-enter-active, .container .input .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .container .input .fade-enter, .container .input .fade-leave-to {
-    opacity: 0;
-  }
   .image {
     width: 350px;
     height: 250px;
-  }
-  .test{
-    color: red;
-  }
-  .test2{
-    color: black;
   }
 </style>

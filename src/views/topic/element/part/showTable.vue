@@ -287,7 +287,7 @@
                 message: response.body.message,
                 type: 'success'
               })
-              this.getdata()
+              // this.getdata()
             } else {
               this.$notify.error({
                 title: 'Error',
