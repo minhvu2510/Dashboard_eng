@@ -122,7 +122,7 @@
     </el-row>
     <div style="padding: 20px">
       <el-row :gutter="20">
-        <el-col :span="12">
+        <el-col :xs="24" :sm="24" :lg="12">
           <el-card style="height: 410px;overflow: scroll;">
             <div slot="header" class="clearfix">
               <i class="fas fa-user-tag fa-fw"></i> <strong>Hot</strong>
@@ -135,7 +135,7 @@
             <!--<pie-chart></pie-chart>-->
           </el-card>
         </el-col>
-        <el-col :span="12">
+        <el-col :xs="24" :sm="24" :lg="12">
           <el-card style="height: 410px;overflow: scroll;">
             <div slot="header" class="clearfix">
               <i class="fas fa-user-tag fa-fw"></i> <strong>Note</strong>

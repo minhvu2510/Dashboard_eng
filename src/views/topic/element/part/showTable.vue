@@ -25,7 +25,7 @@
                   </div>
                 </div>
                 <el-row :gutter="20" style="margin-left: 0!important; margin-right: 0!important">
-                  <el-col :span="12">
+                  <el-col :xs="24" :sm="24" :lg="12">
                     <el-table
                       :data="words1"
                       stripe
@@ -91,7 +91,7 @@
                       </el-table-column>
                     </el-table>
                   </el-col>
-                  <el-col :span="12">
+                  <el-col :xs="24" :sm="24" :lg="12">
                     <el-table
                       :data="words2"
                       stripe
