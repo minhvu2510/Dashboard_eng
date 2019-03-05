@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row>
-      <el-col :xs="24" :sm="24" :lg="6" style="padding-left: 15px;padding-top: 10px" v-for="i in array" :key="i.title">
+      <el-col :xs="24" :sm="24" :lg="6" :md="12" style="padding-left: 15px;padding-top: 10px" v-for="i in array" :key="i.title">
         <el-card class="box-card">
           <el-row>
             <el-col :span="16">

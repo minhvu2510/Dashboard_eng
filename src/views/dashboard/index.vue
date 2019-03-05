@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 2%;padding-top: 10px">
     <el-row :gutter="40" style="padding: 20px;padding-top: 10px">
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :lg="8" :md="12">
         <div class="grid-content bg-purple">
           <div class="hea3" style="border-right: 1px #e6e6e6 solid">
             <div style="margin-bottom: 40px;border: black">
@@ -43,13 +43,13 @@
           <!--<div style="height: 4px;width: 100%;background-color: rgba(227, 222, 110, 0.97)"></div>-->
         </div>
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :lg="8" :md="12">
         <div class="grid-content bg-purple">
           <div class="hea">
             <div v-if="total">Progress: <countTo :startVal='0' :endVal='total' :duration='3500'></countTo></div>
           </div>
           <el-row>
-            <el-col :span="8" style="border-right: 1px #e6e6e6 solid">
+            <el-col :xs="8" :sm="8" :lg="8" :md="12" style="border-right: 1px #e6e6e6 solid">
               <el-row>
                 <el-col :span="10"><center><div class="dd"><br></div></center></el-col>
                 <el-col :span="14" style="margin-top: 3px;color: #616366"><span>Expert</span></el-col>
@@ -62,7 +62,7 @@
               <br>
               <!--<center style="vertical-align:middle">22</center>-->
             </el-col>
-            <el-col :span="8" style="border-right: 1px #e6e6e6 solid">
+            <el-col :xs="8" :sm="8" :lg="8" :md="12" style="border-right: 1px #e6e6e6 solid">
               <el-row>
                 <el-col :span="5"><center><div class="dd1"><br></div></center></el-col>
                 <el-col :span="19" style="margin-top: 3px;color: #616366"><span>Vague</span></el-col>
@@ -74,7 +74,7 @@
               </div>
               <br>
             </el-col>
-            <el-col :span="8">
+            <el-col :xs="8" :sm="8" :lg="8" :md="12">
               <el-row>
                 <el-col :span="6"><center><div class="dd2"><br></div></center></el-col>
                 <el-col :span="18" style="margin-top: 3px;color: #616366"><span>Forget</span></el-col>
@@ -90,7 +90,7 @@
           <div style="height: 4px;width: 100%;background-color: rgba(75, 179, 197, 0.97)"></div>
         </div>
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :lg="8" :md="12">
         <div class="grid-content bg-purple">
           <div class="hea1">
             <div>Counter <countTo :startVal='0' :endVal='innings' :duration='3000'></countTo></div>
