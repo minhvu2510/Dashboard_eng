@@ -20,6 +20,7 @@
               </el-row>
               <el-row style="padding-left: 5px;padding-bottom: 2px;padding-top: 15px">
                 <el-input
+                  @keyup.native.enter="pushdata()"
                   size="mini"
                   placeholder="VN"
                   clearable

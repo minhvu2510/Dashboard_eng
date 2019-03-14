@@ -169,7 +169,7 @@
             <el-input v-model="en" clearable></el-input>
           </el-form-item>
           <el-form-item label="VN">
-            <el-input v-model="vn" clearable></el-input>
+            <el-input @keyup.native.enter="addVoca" v-model="vn" clearable></el-input>
           </el-form-item>
           <el-form-item label="Level">
             <el-rate
