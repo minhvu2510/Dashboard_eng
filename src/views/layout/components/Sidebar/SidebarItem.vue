@@ -8,12 +8,6 @@
             <span slot="title">Dashboard</span>
           </el-menu-item>
         </router-link>
-        <!--<router-link :to="'/addVocabulary'">-->
-          <!--<el-menu-item index="Vocabulary">-->
-            <!--<i class="fas fa-plus-square"></i>-->
-            <!--<span slot="title">Add Vocabulary</span>-->
-          <!--</el-menu-item>-->
-        <!--</router-link>-->
         <router-link :to="'/topic'">
           <el-menu-item index="Study">
             <i class="fas fa-address-card"></i>
@@ -26,173 +20,16 @@
             <span slot="title">Study by confuse</span>
           </el-menu-item>
         </router-link>
-        <!--<router-link :to="'/dashboard'">-->
-          <!--<el-menu-item index="listen">-->
-            <!--<i class="fas fa-assistive-listening-systems"></i>-->
-            <!--<span slot="title">Listen</span>-->
-          <!--</el-menu-item>-->
-        <!--</router-link>-->
-        <!--<router-link :to="'/dashboard'">-->
-          <!--<el-menu-item index="Read">-->
-            <!--<i class="fab fa-readme"></i>-->
-            <!--<span slot="title">Read</span>-->
-          <!--</el-menu-item>-->
-        <!--</router-link>-->
-        <!--===========================================================-->
-        <!--<el-submenu popper-class="vcc-pbx-menu" index="1" class="aaa">-->
-          <!--<template slot="title">-->
-            <!--<i class="fas fa-user-cog fa-fw"></i>-->
-            <!--<span>Customers</span>-->
-          <!--</template>-->
-          <!--<el-menu  background-color="#2a3a49" text-color="#fff">-->
-            <!--<div style="background-color: #0e1f31c2!important;padding: 20px;padding-bottom: 0px;padding-top: 10px">-->
-              <!--<el-input size="small" type="text" placement="searchft" prefix-icon="el-icon-search" placeholder="Search account ..." v-model="searchkey" clearable></el-input>-->
-            <!--</div>-->
-            <!--<div style="background-color: #0e1f31c2!important;padding: 20px;padding-bottom: 0px;padding-top: 10px;padding-bottom: 10px">-->
-              <!--<el-select size="small" @click="filtered" v-model="filters" placeholder="Select">-->
-                <!--<el-option @click.native="filtered" label="All" value=""></el-option>-->
-                <!--<el-option @click.native="filtered" label="Active" value="active"></el-option>-->
-                <!--<el-option @click.native="filtered" label="Pending" value="pending"></el-option>-->
-                <!--<el-option @click.native="filtered" label="Progress" value="progress"></el-option>-->
-              <!--</el-select>-->
-            <!--</div>-->
-            <!--<el-submenu @click="PushAccount(acc.id)"  :index="acc.email" v-for="acc in accounts" :key="acc.email">-->
-              <!--<template @click="PushAccount(acc.id)" slot="title" text-color="#ffffff">-->
-                <!--<router-link :to="'/account/' + acc.id" >-->
-                  <!--&lt;!&ndash;<i class="fas fa-chart-bar fa-fw"></i>&ndash;&gt;-->
-                  <!--<div>-->
-                    <!--<span  style="word-wrap: break-word;font-size: 13px">{{acc.email}}</span>-->
-                    <!--<el-tag size="mini" v-if="acc.status==='prog'" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-else-if="acc.status==='active'" type="success" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-else type="warning" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-if="acc.status==='prog'" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-else-if="acc.status==='active'" type="success" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-else type="warning" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-if="acc.status==='prog'" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-else-if="acc.status==='active'" type="success" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                    <!--<el-tag size="mini" v-else type="warning" class="sidebar-item-button">{{acc.status}} {{acc.hotlines.length}}</el-tag>-->
-                  <!--</div>-->
-                <!--</router-link>-->
-                <!--&lt;!&ndash;</el-badge>&ndash;&gt;-->
-              <!--</template>-->
-              <!--<router-link :to="'/addhotline/' + acc.id">-->
-               <!--<el-menu-item index="aq2" style="margin-right: 10px">-->
-                 <!--<i style="color: #3798ec" class="fas fa-plus"></i>-->
-                 <!--<el-button style="font-size: 17px;padding-left: 12px" type="text">Thêm hotline</el-button>-->
-               <!--</el-menu-item>-->
-              <!--</router-link>-->
-              <!--<el-menu-item v-if="acc.hotlines.length > 0" index="aq" class="center-number">-->
-                <!--&lt;!&ndash;number of accounts&ndash;&gt;-->
-                  <!--<el-input size="small" prefix-icon="el-icon-search" clearable placeholder="Search ..." v-model="searht"></el-input>-->
-              <!--</el-menu-item>-->
-              <!--<el-menu-item @click="phonerouter(hotl.id)" v-if="searht!==''&& check_search(searht,hotl.number)" :index="hotl.number" v-for="hotl in acc.hotlines" :key="hotl.number">-->
-                <!--<router-link :to="'/hotline_account/' + hotl.id">-->
-                  <!--<i class="fas fa-phone-square fa-fw"></i>-->
-                  <!--<span>{{formatPhone(hotl.number)}}</span>-->
-                  <!--<el-tag v-if="hotl.status==='progress'" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='pending'" type="warning" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='active'" type="success" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else type="danger" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-if="hotl.status==='progress'" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='pending'" type="warning" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='active'" type="success" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else type="danger" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-if="hotl.status==='progress'" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='pending'" type="warning" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='active'" type="success" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else type="danger" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                <!--</router-link>-->
-              <!--</el-menu-item>-->
-              <!--<el-menu-item  @click="phonerouter(hotl.id)" v-if="searht===''&& check_search('0',hotl.number)" :index="hotl.number" v-for="hotl in acc.hotlines" :key="hotl.number">-->
-                <!--<router-link :to="'/hotline_account/' + hotl.id">-->
-                  <!--<i class="fas fa-phone-square fa-fw"></i>-->
-                  <!--<span>{{formatPhone(hotl.number)}}</span>-->
-                  <!--<el-tag v-if="hotl.status==='progress'" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='pending'" type="warning" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='active'" type="success" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else type="danger" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-if="hotl.status==='progress'" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='pending'" type="warning" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='active'" type="success" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else type="danger" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-if="hotl.status==='progress'" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='pending'" type="warning" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else-if="hotl.status==='active'" type="success" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                  <!--<el-tag v-else type="danger" class="sidebar-item-button">{{hotl.status}}</el-tag>-->
-                <!--</router-link>-->
-              <!--</el-menu-item>-->
-            <!--</el-submenu>-->
-          <!--</el-menu>-->
-          <!--&lt;!&ndash;<b-pagination align="center" size="md" :total-rows="k" v-model="pag" :per-page="10"></b-pagination>&ndash;&gt;-->
-        <!--</el-submenu>-->
-        <!--<el-submenu popper-class="vcc-pbx-menu" index="hotw">-->
-          <!--<template slot="title">-->
-            <!--<i class="fas fa-phone-square fa-fw"></i>-->
-            <!--<span>Hotlines</span>-->
-          <!--</template>-->
-          <!--&lt;!&ndash;<el-menu  background-color="#1a2835" text-color="#fff">&ndash;&gt;-->
-            <!--&lt;!&ndash;<div style="padding: 20px;padding-bottom: 0px;padding-top: 10px">&ndash;&gt;-->
-              <!--&lt;!&ndash;<router-link :to="'/addHotline'">&ndash;&gt;-->
-                <!--&lt;!&ndash;<i style="color: #3798ec" class="fas fa-plus"></i>&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-button style="font-size: 17px;padding-left: 12px" type="text">Thêm hotline vào kho</el-button>&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<el-button type="text" @click="dialogVisible = true">click to open the Dialog</el-button>&ndash;&gt;&ndash;&gt;-->
-              <!--&lt;!&ndash;</router-link>&ndash;&gt;-->
-
-<!--&lt;!&ndash;&lt;!&ndash;==================================================================================================================&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div style="background-color: #0e1f31c2!important;padding: 20px;padding-bottom: 0px;padding-top: 10px">&ndash;&gt;-->
-              <!--&lt;!&ndash;<el-input size="small" @keyup.enter.native="gethotlines(pag)" placeholder="Search number ..." v-model="searchkeys" prefix-icon="el-icon-search" clearable></el-input>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div style="background-color: #0e1f31c2!important;padding: 20px;padding-bottom: 0px;padding-top: 10px;padding-bottom: 10px">&ndash;&gt;-->
-              <!--&lt;!&ndash;<el-select size="small" @click="filteredht(pag)" v-model="filterss" placeholder="Select">&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-option @click.native="filteredht(pag)" label="All" value=""></el-option>&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-option @click.native="filteredht(pag)" label="Normal" value="Normal"></el-option>&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-option @click.native="filteredht(pag)" label="VIP" value="VIP"></el-option>&ndash;&gt;-->
-              <!--&lt;!&ndash;</el-select>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<el-menu-item @click="teee(num.number)" :index="num.number" class="center-number" v-for="num in hotlines" :key="num.number">&ndash;&gt;-->
-              <!--&lt;!&ndash;<router-link :to="'/hotline/'+num.number">&ndash;&gt;-->
-                <!--&lt;!&ndash;<div>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<i class="fas fa-phone-square fa-fw"></i>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<span>{{formatPhone(num.number)}}</span>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-tag v-if="num.kind==='Normal'" class="sidebar-item-button" type="success">{{num.status}} {{num.kind}}</el-tag>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-tag v-else class="sidebar-item-button" type="danger">{{num.status}} {{num.kind}}</el-tag>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-tag v-if="num.kind==='Normal'" class="sidebar-item-button" type="success">{{num.status}} {{num.kind}}</el-tag>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-tag v-else class="sidebar-item-button" type="danger">{{num.status}} {{num.kind}}</el-tag>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-tag v-if="num.kind==='Normal'" class="sidebar-item-button" type="success">{{num.status}} {{num.kind}}</el-tag>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-              <!--&lt;!&ndash;</router-link>&ndash;&gt;-->
-            <!--&lt;!&ndash;</el-menu-item>&ndash;&gt;-->
-          <!--&lt;!&ndash;</el-menu>&ndash;&gt;-->
-          <!--<div style="padding-left: 60px;background-color: #17212e;padding-bottom: 7px">-->
-            <!--<el-pagination-->
-              <!--small-->
-              <!--style="color: #4b494e"-->
-              <!--:current-page.sync="pag"-->
-              <!--:page-size="12"-->
-              <!--layout="prev, pager, next"-->
-              <!--:total="k">-->
-            <!--</el-pagination>-->
-          <!--</div>-->
-          <!--&lt;!&ndash;</el-menu-item>&ndash;&gt;-->
-        <!--</el-submenu>-->
-        <!--<router-link :to="'/packages'">-->
-          <!--<el-menu-item index="pac">-->
-            <!--<i class="fas fa-box"></i>-->
-            <!--<span slot="title">Packages</span>-->
-          <!--</el-menu-item>-->
-        <!--</router-link>-->
-        <!--<router-link :to="'/addons'">-->
-          <!--<el-menu-item index="addon">-->
-            <!--<i class="fas fa-puzzle-piece"></i>-->
-            <!--<span slot="title">Addons</span>-->
-          <!--</el-menu-item>-->
-        <!--</router-link>-->
-        <!--</el-submenu>-->
         <router-link :to="'/chose'">
           <el-menu-item index="listen">
             <i class="fas fa-assistive-listening-systems"></i>
             <span slot="title">Listen</span>
+          </el-menu-item>
+        </router-link>
+        <router-link :to="'/showAll'">
+          <el-menu-item index="listens">
+            <i class="fas fa-assistive-listening-systems"></i>
+            <span slot="title">Show All</span>
           </el-menu-item>
         </router-link>
         <router-link :to="'/history'">

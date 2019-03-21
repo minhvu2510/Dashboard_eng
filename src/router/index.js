@@ -13,6 +13,7 @@ import dashboard from '@/views/dashboard/index'
 // import hot_ac from '@/views/Hotlines_ac/Hotlines_ac'
 import loading from '@/views/loading/index'
 import chose from '@/views/chose_en/chose_en'
+import getall from '@/views/showAll/showAll'
 
 const _import = require('./_import_' + process.env.NODE_ENV)
 // in development-env not use lazy-loading, because lazy-loading too many pages will cause webpack hot update too slow. so only in production use lazy-loading;
@@ -126,6 +127,16 @@ export const constantRouterMap = [
     children: [{
       path: '',
       component: history
+    }]
+  },
+  {
+    path: '/showAll',
+    component: layout,
+    redirect: '',
+    hidden: true,
+    children: [{
+      path: '',
+      component: getall
     }]
   },
   // {

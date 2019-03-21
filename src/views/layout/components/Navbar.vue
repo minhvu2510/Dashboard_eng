@@ -21,17 +21,6 @@
           <i class="el-icon-caret-bottom" style="color:#fff;"></i>
         </div>
         <el-dropdown-menu slot="dropdown">
-          <!--<el-dropdown-item @click.native="goToMailbox">-->
-            <!--&lt;!&ndash;<i class="far fa-envelope fa-fw"></i> {{ email }}&ndash;&gt;-->
-          <!--</el-dropdown-item>-->
-          <!--<router-link to="/">-->
-            <!--<el-dropdown-item divided>-->
-              <!--<i class="fas fa-chart-bar fa-fw"></i> {{$t('navbar.dashboard')}}-->
-            <!--</el-dropdown-item>-->
-          <!--</router-link>-->
-          <!--<el-dropdown-item @click.native="goToPage('manage-user')">-->
-              <!--Quản lý user-->
-          <!--</el-dropdown-item>-->
           <el-dropdown-item divided>
             <span @click="logout" style="display:block;">
               <i class="fas fa-power-off fa-fw"></i> Đăng xuất
