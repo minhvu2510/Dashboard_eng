@@ -74,7 +74,11 @@
           { 'title': 'other', 'link': 'https://pbs.twimg.com/media/CBDgItLUgAAufpZ.jpg',
             'word': [], 'count': 21 },
           { 'title': 'Forget', 'link': 'https://pbs.twimg.com/media/CBDgItLUgAAufpZ.jpg',
-            'word': [], 'count': 22 }
+            'word': [], 'count': 22 },
+          { 'title': 'Expand01', 'link': 'http://blog.blueup.vn/wp-content/uploads/2015/06/Hiring-and-training.jpg',
+            'word': [], 'count': 23 },
+          { 'title': 'Expand02', 'link': 'http://blog.blueup.vn/wp-content/uploads/2015/06/Hiring-and-training.jpg',
+            'word': [], 'count': 24 }
         ],
         currentDate: new Date().toDateString(),
         views: []
