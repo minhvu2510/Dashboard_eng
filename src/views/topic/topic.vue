@@ -78,7 +78,13 @@
           { 'title': 'Expand01', 'link': 'http://blog.blueup.vn/wp-content/uploads/2015/06/Hiring-and-training.jpg',
             'word': [], 'count': 23 },
           { 'title': 'Expand02', 'link': 'http://blog.blueup.vn/wp-content/uploads/2015/06/Hiring-and-training.jpg',
-            'word': [], 'count': 24 }
+            'word': [], 'count': 24 },
+          { 'title': 'Expand part7', 'link': 'http://image.pmcontent.com/film/732/poster.medium.jpg',
+            'word': [], 'count': 25 },
+          { 'title': 'Appendix', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-13.jpg',
+            'word': [], 'count': 26 },
+          { 'title': 'mv', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-1.jpg',
+            'word': [], 'count': 27 }
         ],
         currentDate: new Date().toDateString(),
         views: []
