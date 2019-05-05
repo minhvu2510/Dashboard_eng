@@ -84,7 +84,9 @@
           { 'title': 'Appendix', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-13.jpg',
             'word': [], 'count': 26 },
           { 'title': 'mv', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-1.jpg',
-            'word': [], 'count': 27 }
+            'word': [], 'count': 27 },
+          { 'title': 'javis', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-1.jpg',
+            'word': [], 'count': 28 }
         ],
         currentDate: new Date().toDateString(),
         views: []

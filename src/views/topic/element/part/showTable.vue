@@ -14,7 +14,7 @@
             <el-col :xs="24" :sm="24" :md="24">
               <el-card shadow="never">
                 <div slot="header" class="clearfix" style="position: relative;">
-                  <span style="font-weight: bold; font-size: 20px">Topic {{this.$route.params.nameTopic}}</span>
+                  <span style="font-weight: bold; font-size: 20px">Topic {{this.$route.params.nameTopic}} {{this.lent}}</span>
                   <el-button @click="dialogFormVisible = true" size="mini" style="padding-left: 10px" type="primary"><i class="fas fa-plus-circle"></i> Thêm mới</el-button>
                   <el-button @click="getdata()" type="primary" plain>Show level</el-button>
                   <el-input-number style="width: 90px" size="mini" v-model="level2" controls-position="right" :min="1" :max="15"></el-input-number>
@@ -203,6 +203,7 @@
         words1: [],
         words2: [],
         check: true,
+        lent: 0,
         check1: true
       }
     },
@@ -217,6 +218,7 @@
             this.words1 = []
             this.words2 = []
             words = response.body.data
+            this.lent = words.length
             for (const j in words) {
               words[j]['edit'] = false
             }
