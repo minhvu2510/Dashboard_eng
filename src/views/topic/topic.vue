@@ -86,7 +86,11 @@
           { 'title': 'mv', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-1.jpg',
             'word': [], 'count': 27 },
           { 'title': 'javis', 'link': 'https://tpms.vn/wp-content/uploads/2017/04/anh-dep-sieu-xe-1.jpg',
-            'word': [], 'count': 28 }
+            'word': [], 'count': 28 },
+          { 'title': 'part1', 'link': 'https://giaidap.com.vn/wp-content/uploads/2018/09/stt-met-moi-be-tac-7.png',
+            'word': [], 'count': 29 },
+          { 'title': 'advance', 'link': 'https://tuvantamly.com.vn/wp-content/uploads/2016/02/s%E1%BB%B1-th%E1%BA%ADt-v%E1%BB%81-t%C3%ACnh-y%C3%AAu-2.jpg',
+            'word': [], 'count': 30 }
         ],
         currentDate: new Date().toDateString(),
         views: []
