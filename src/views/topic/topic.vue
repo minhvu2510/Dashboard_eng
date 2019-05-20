@@ -85,7 +85,7 @@
             'word': [], 'count': 25 },
           { 'title': 'Appendix', 'link': 'http://kristiholl.net/writers-blog/wp-content/uploads/2013/05/strong.jpg',
             'word': [], 'count': 26 },
-          { 'title': 'Journey', 'link': 'https://i.ytimg.com/vi/NGnqAIwHfzI/maxresdefault.jpg',
+          { 'title': 'mv', 'link': 'https://i.ytimg.com/vi/NGnqAIwHfzI/maxresdefault.jpg',
             'word': [], 'count': 27 },
           { 'title': 'Javis', 'link': 'https://images.pexels.com/photos/50582/selfie-monkey-self-portrait-macaca-nigra-50582.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
             'word': [], 'count': 28 },
