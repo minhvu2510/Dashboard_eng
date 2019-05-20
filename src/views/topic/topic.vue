@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row>
-      <el-col :xs="24" :sm="24" :lg="6" :md="12" style="padding-left: 15px;padding-top: 10px" v-for="i in array" :key="i.title">
+      <el-col :xs="24" :sm="24" :lg="6" :md="12" style="padding-left: 10px;padding-top: 10px" v-for="i in array" :key="i.title">
         <el-card class="box-card">
           <el-row>
             <el-col :span="16">
@@ -91,8 +91,12 @@
             'word': [], 'count': 28 },
           { 'title': 'part1', 'link': 'https://giaidap.com.vn/wp-content/uploads/2018/09/stt-met-moi-be-tac-7.png',
             'word': [], 'count': 29 },
-          { 'title': 'advance', 'link': 'https://tuvantamly.com.vn/wp-content/uploads/2016/02/s%E1%BB%B1-th%E1%BA%ADt-v%E1%BB%81-t%C3%ACnh-y%C3%AAu-2.jpg',
-            'word': [], 'count': 30 }
+          { 'title': 'Advance', 'link': 'https://tuvantamly.com.vn/wp-content/uploads/2016/02/s%E1%BB%B1-th%E1%BA%ADt-v%E1%BB%81-t%C3%ACnh-y%C3%AAu-2.jpg',
+            'word': [], 'count': 30 },
+          { 'title': 'Essential', 'link': 'https://www.thoughtco.com/thmb/ZxfjWnSvTYQnInIb-_qUD2wo7Zk=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-480663639-566ad9db3df78ce161594b7b.jpg',
+            'word': [], 'count': 31 },
+          { 'title': 'Pro', 'link': 'https://tonygentilcore.com/wp-content/uploads/2017/08/Strong-1024x683.jpg',
+            'word': [], 'count': 32 }
         ],
         currentDate: new Date().toDateString(),
         views: []
@@ -216,8 +220,8 @@
     clear: both
   }
   .box-card {
-    width: 225px;
-    height: 280px;
+    width: 240px;
+    height: 290px;
     padding: 0px;
   }
 
