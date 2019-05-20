@@ -28,6 +28,14 @@
         </el-card>
       </el-col>
     </el-row>
+    <el-row>
+      <h3 style="text-align: center">
+        Nếu bạn muốn từ bỏ hãy nghĩ tới lí do bạn bắt đầu.
+      </h3>
+      <h4 style="text-align: center">
+        code by vunm
+      </h4>
+    </el-row>
   </div>
 </template>
 
