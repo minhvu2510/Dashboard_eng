@@ -29,10 +29,10 @@
       </el-col>
     </el-row>
     <el-row>
-      <h3 style="text-align: center">
+      <h3 style="text-align: center;color: #c4c4c4">
         Nếu bạn muốn từ bỏ hãy nghĩ tới lí do bạn bắt đầu.
       </h3>
-      <h4 style="text-align: center">
+      <h4 style="text-align: center;color: #c4c4c4">
         code by vunm
       </h4>
     </el-row>

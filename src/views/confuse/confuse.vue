@@ -23,15 +23,18 @@
                 <!--<div v-for="i in vocab" :key="i.key">-->
                   <!--<p>{{i.key}}</p>-->
                 <!--</div>-->
+                <el-row style="padding-top: 0px">
+                  <el-progress :percentage="percent" status="success"></el-progress>
+                </el-row>
                 <el-row :gutter="20" style="margin-left: 0!important; margin-right: 0!important">
-                  <el-col :span="12">
+                  <el-col :span="8">
                     <center>
                       <h2>{{item.key}}</h2>
-                      <el-progress :percentage="percent" status="success"></el-progress>
+                      <!--<el-progress :percentage="percent" status="success"></el-progress>-->
                       <p>{{count}}</p>
                     </center>
                   </el-col>
-                  <el-col :span="12">
+                  <el-col :span="16">
                     <div v-if="check">
                       <el-row>
                         <el-col :span="12" v-for="i in answer" :key="i.key" style="padding-top: 40px">
