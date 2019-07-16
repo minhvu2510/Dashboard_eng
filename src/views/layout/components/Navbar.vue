@@ -17,7 +17,7 @@
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click" :show-timeout="0">
         <div class="avatar-wrapper">
-          <img class="user-avatar" src="../../../assets/user.png">
+          <img class="user-avatar" src="../../../assets/icona.jpg">
           <i class="el-icon-caret-bottom" style="color:#fff;"></i>
         </div>
         <el-dropdown-menu slot="dropdown">

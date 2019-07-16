@@ -7,7 +7,7 @@ module.exports = {
   SOCKET_SERVER: '"http://voice.bipbip.vn/supervisor"',
   SWAPI_URL: "'https://manage-stagging-callcenter.vccloud.vn/api/v1'",
   BILLING: "'https://api-stagging-callcenter.vccloud.vn'",
-  // TEST_LOCAL: "'http://0.0.0.0:8100'"
-  TEST_LOCAL: "'http://10.5.20.34:8100'"
+  TEST_LOCAL: "'http://0.0.0.0:8100'"
+  // TEST_LOCAL: "'http://10.5.20.34:8100'"
   // TEST_LOCAL: "'http://209.97.172.91:8100'"
 }

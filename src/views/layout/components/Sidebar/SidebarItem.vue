@@ -38,6 +38,12 @@
             <span slot="title">Study</span>
           </el-menu-item>
         </router-link>
+        <router-link :to="'/memo'">
+          <el-menu-item index="history">
+            <i class="fas fa-database"></i>
+            <span slot="title">Memo</span>
+          </el-menu-item>
+        </router-link>
       </template>
     </div>
   </div>
