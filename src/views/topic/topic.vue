@@ -112,7 +112,17 @@
           { 'title': '35', 'link': 'http://static2.yan.vn/YanNews/2167221/201709/20170920-035730-1_600x525.PNG',
             'word': [], 'count': 35 },
           { 'title': '36', 'link': 'https://i2.wp.com/thuvienanh.net/wp-content/uploads/2019/03/14390859_266626337070063_2303668231215962723_n.jpg?resize=512%2C640&ssl=1',
-            'word': [], 'count': 36 }
+            'word': [], 'count': 36 },
+          { 'title': 'ets2018_1', 'link': 'https://sohanews.sohacdn.com/thumb_w/660/2016/2sao-cam-tu-vi-uong-ava-1481269556182-0-0-304-490-crop-1481272730302.jpg',
+            'word': [], 'count': 37 },
+          { 'title': 'ets2018_2', 'link': 'https://vcdn-giaitri.vnecdn.net/2018/11/14/trieu-man14-1542185914_680x0.jpg',
+            'word': [], 'count': 38 },
+          { 'title': 'ets2018_3', 'link': 'https://photo-2-baomoi.zadn.vn/w1000_r1/2019_04_20_329_30427408/9efd6dd6bc9655c80c87.jpg',
+            'word': [], 'count': 39 },
+          { 'title': 'ets2018_4', 'link': 'https://i.pinimg.com/564x/cb/0c/b7/cb0cb7cc3aaf21fee2f4549e62d39899.jpg',
+            'word': [], 'count': 40 },
+          { 'title': 'ets2018_5', 'link': 'https://media.doisongphapluat.com/493/2019/3/11/tan-y-thien-do-long-ky-trieu-man-tran-ngoc-ky%20(4).jpg',
+            'word': [], 'count': 41 }
         ],
         currentDate: new Date().toDateString(),
         views: []
