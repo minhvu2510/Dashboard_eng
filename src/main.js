@@ -37,6 +37,7 @@ Vue.use(VueSession)
 Vue.use(VueSingleSelect)
 Vue.use(vueResource)
 Vue.use(VueCookies)
+// Vue.use(VueRightClick)
 Vue.use(Element, {
   size: 'small', // set element-ui default size
   locale
