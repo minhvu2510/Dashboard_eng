@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 2%;padding-top: 10px">
+  <div style="padding: 2%;padding-top: 10px; background-image: url('https://gonefisching.com/wp-content/uploads/2020/04/Tres-Lagunas-Cordillera-Huayhuash.jpg');">
     <el-row :gutter="40" style="padding: 20px;padding-top: 10px">
       <el-col :xs="24" :sm="24" :lg="8" :md="12">
         <div class="grid-content bg-purple">

@@ -9,7 +9,7 @@
       <!--</div>-->
     <!--</el-row>-->
     <el-row>
-        <div class="app-container">
+        <div class="app-container" >
           <el-row :gutter="20">
             <el-col :xs="24" :sm="24" :md="24">
               <el-card shadow="never">
