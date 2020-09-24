@@ -1,21 +1,24 @@
 # Dashboard luyện học từ mới toeic (Vuejs + Python)
-## Test bot
-* Search trên telegram bot 'LoveYourSmile'
-* Bắt đầu bằng lệnh '/study'
-## Các bước kiểm tra
-* Từ vựng được chia theo chủ đề, chọn chủ để để tiến hành ôn tập. 
-* Có kết quả số câu đúng khi kết thúc kiểm tra
-* Những câu sai sẽ được lưu vào topic 'memo' để kiểm tra lại, vào tự xóa sau khi trả lời đúng hoặc sau 7 ngày
+## Các mành hình trong dashboard
+#### Dashboard
+* Hiển thị số từ vựng, quá trình học, tiến độ...
+* Số ngày đăng nhập, số ngày bỏ lỡ
+* Những lưu ý cần nhớ, từ vựng chưa nhớ...
 
 | 1 | 2 | 
 | --- | --- |
 | ![Screenshot from 2020-09-24 11-11-19](https://user-images.githubusercontent.com/36092539/94100067-c3922980-fe56-11ea-8e98-468e2c710658.png) | ![Screenshot from 2020-09-24 11-13-39](https://user-images.githubusercontent.com/36092539/94100154-0a801f00-fe57-11ea-8eda-63413828dce6.png)|
-## Build và deploy code
-| Chọn chủ đề | Kiểm tra | Kiểm tra lại câu sai |
+#### Topic
+* Từ vựng chia theo chủ đề. Hiện thị những từ mới thêm, từ khó lên ở cột bên phải
+* Khi chọn một chủ đề sẽ hiển thị từ vựng ở dạng bảng có các chức năng để học như: chỉ hiển thị từ hoặc nghĩa, trộn lẫn, lọc những từ chưa có, thêm từ mới
+* Chế độ luyện tập bằng hình thức chắc nhiệm 5 - 10p. Những từ sai sẽ tăng level và gửi qua telegram để nhắc nhở
+
+| Các chủ đề | Chi tiết | Test trắc nghiệm |
 | --- | --- | --- |
 | ![Screenshot from 2020-09-24 11-20-28](https://user-images.githubusercontent.com/36092539/94100478-fc7ece00-fe57-11ea-8dd7-feb86125e473.png) | ![Screenshot from 2020-09-24 11-21-34](https://user-images.githubusercontent.com/36092539/94100553-2801b880-fe58-11ea-8dfc-ac237b744335.png)| ![Screenshot from 2020-09-24 11-24-48](https://user-images.githubusercontent.com/36092539/94100802-a8c0b480-fe58-11ea-9cb5-e31ec30b41c7.png)
 
-## Build và deploy code
+#### Exam
+* Lấy ngẫu nhiên các từ ở các chủ để thành bài kiểm tra 15p (Ưu tiên từ mới, level cao). Từ sai sẽ dc lưu lại gửi qua telegram
 ![Screenshot from 2020-09-24 11-26-57](https://user-images.githubusercontent.com/36092539/94100906-f4735e00-fe58-11ea-9851-ce2a4998682a.png)
 
 ## Build và deploy code
