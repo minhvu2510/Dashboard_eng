@@ -1,0 +1,8 @@
+pymongo==3.11.0
+functools==0.5
+Flask==1.1.2
+bson==0.5.10
+ipython
+simplejson==3.16.0
+uuid0==0.2.7
+Flask-Cors==3.0.9
