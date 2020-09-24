@@ -1,4 +1,11 @@
 # Dashboard luyện học từ mới toeic (Vuejs + Python)
+## Project Structure
+    ├── deployment                   // deploy với ansible, run api bằng docker
+    ├── docker                       // run code dưới dạng container
+    ├── src                          // run code dưới dạng container
+    │   ├── be_eng                     // project backend api (python Flask)
+    │   ├── fe_end                    // project frontend (Vuejs)
+    │   ├── reminder                // gửi thông báo nhắc nhở qua telegram
 ## Các mành hình trong dashboard
 #### Dashboard
 * Hiển thị số từ vựng, quá trình học, tiến độ...
@@ -22,16 +29,14 @@
 ![Screenshot from 2020-09-24 11-26-57](https://user-images.githubusercontent.com/36092539/94100906-f4735e00-fe58-11ea-9851-ce2a4998682a.png)
 
 ## Build và deploy code
-* Thay đổi thông tin tại file docker /.env (build 3 container: redis, bot-core, mongo)
+* Thay đổi thông tin tại file docker/.env (build 3 container: api, frontend, mongo)
 * Chạy lệnh sau để build tại localhost:
 ```bash
 set .env && docker-compose up -d --build
 ```
-![Screenshot from 2020-09-23 16-11-05](https://user-images.githubusercontent.com/36092539/93992271-8d519d00-fdb7-11ea-8e18-a51c0ee062c2.png)
-
 Deploy code lên host:
 * Thay host tại file /deployment/hosts
 * Chạy ansible để deploy + run container trên host:
 ```bash
-ansible-playbook -i deployment/hosts deployment/site.yml -l telebot -t telebot -u {username}
+ansible-playbook -i deployment/hosts deployment/site.yml -l dashboard -t dashboard -u {username}
 ```

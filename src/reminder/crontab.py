@@ -1,4 +1,5 @@
 #! coding: utf-8
+
 import db
 from random import randrange,sample
 
@@ -27,7 +28,6 @@ coun = db.count_document('ets2018_2', {'level': {'$gt': 1}})
 list_data = []
 for i in ram:
     if (list_topic[i] != 'user') and (list_topic[i] != 'note'):
-        print('---if----', list_topic[i], list_topic[i])
         coun = db.count_document(list_topic[i], {'level': {'$gt': 8}})
         if coun > 0:
             ram_skip = randrange(coun)
@@ -37,8 +37,8 @@ for i in ram:
         else:
             continue
 print(len(list_data), '----------')
-file = open("/home/vunm/pymongo/key.txt", "wb+")
-file1 = open("/home/vunm/pymongo/value.txt", "wb+")
+file = open("/srv/dashboard_eng/src/reminder/key.txt", "wb+")
+file1 = open("/srv/dashboard_eng/src/reminder/value.txt", "wb+")
 count = 1
 for i in list_data:
     file.write(str(count) + ' ' + i['key'].encode('utf-8') + '\n')

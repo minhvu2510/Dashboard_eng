@@ -1,5 +1,5 @@
 ## Introduction
-This project is built with [Vue.js2](https://vuejs.org/) and [Element UI](http://element.eleme.io/#/en-US/component/installation)
+This project is built with [Vue.js2](https://vuejs.org/) 
 
 ## Getting Started
 ```bash
@@ -62,28 +62,4 @@ npm run lint -- --fix
     ├── favicon.ico                // favicon ico
     ├── index.html                 // index.html template
     └── package.json               // package.json
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
-```
-```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
-```
 
