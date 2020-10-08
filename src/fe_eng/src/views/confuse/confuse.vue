@@ -32,6 +32,7 @@
                       <h2>{{item.key}}</h2>
                       <!--<el-progress :percentage="percent" status="success"></el-progress>-->
                       <p>{{count}}</p>
+                      <el-button @click="pronounce(item.key)" type="warning" icon="el-icon-phone-outline" circle></el-button>
                     </center>
                   </el-col>
                   <el-col :span="16">
@@ -152,6 +153,8 @@
             })
           }
         }
+        var msg = new SpeechSynthesisUtterance(this.item.key)
+        window.speechSynthesis.speak(msg)
       },
       startTimer: function() {
         this.check_start = true
@@ -178,6 +181,19 @@
       },
       countdown: function() {
         this.totalTime--
+      },
+      pronounce(nounce) {
+        var msg = new SpeechSynthesisUtterance()
+        msg.voiceURI = 'native'
+        msg.text = nounce
+        msg.lang = 'en-US'
+
+        msg.onend = function(e) {
+          console.log('Finished in ' + event.elapsedTime + ' seconds.')
+        }
+
+        speechSynthesis.speak(msg)
+        console.log(nounce)
       }
     },
     computed: {
