@@ -25,7 +25,7 @@
                       width="150">
                       <template slot-scope="scope">
                         <div v-if="scope.row.edit === false">
-                          <div v-if="check"> {{(scope.row.key)}} </div>
+                          <div v-if="check"> {{(scope.row.key)}} <i @click="pronounce(scope.row.key)" class="el-icon-video-play"></i></div>
                         </div>
                         <div v-else>
                           <el-input placeholder="Please input" v-model="scope.row.key"></el-input>
@@ -92,7 +92,7 @@
                       width="150">
                       <template slot-scope="scope">
                         <div v-if="scope.row.edit === false">
-                          <div v-if="check"> {{(scope.row.key)}} </div>
+                          <div v-if="check"> {{(scope.row.key)}} <i @click="pronounce(scope.row.key)" class="el-icon-video-play"></i></div>
                         </div>
                         <div v-else>
                           <el-input placeholder="Please input" v-model="scope.row.key"></el-input>
@@ -231,6 +231,19 @@
             this.words1 = words
           }
         })
+      },
+      pronounce(nounce) {
+        var msg = new SpeechSynthesisUtterance()
+        msg.voiceURI = 'native'
+        msg.text = nounce
+        msg.lang = 'en-US'
+
+        msg.onend = function(e) {
+          console.log('Finished in ' + event.elapsedTime + ' seconds.')
+        }
+
+        speechSynthesis.speak(msg)
+        console.log(nounce)
       },
       confuse() {
         this.words1.sort(function() { return 0.5 - Math.random() })
