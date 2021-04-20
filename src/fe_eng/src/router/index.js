@@ -9,6 +9,8 @@ import add_vocabulary from '@/views/add_vocabulary/index'
 import topic from '@/views/topic/topic'
 import topic_element from '@/views/topic/element/index'
 import confuse from '@/views/confuse/confuse'
+import difficult from '@/views/difficult/difficult'
+import topics from '@/views/topics/topics'
 import dashboard from '@/views/dashboard/index'
 // import hot_ac from '@/views/Hotlines_ac/Hotlines_ac'
 import loading from '@/views/loading/index'
@@ -98,6 +100,26 @@ export const constantRouterMap = [
     children: [{
       path: '',
       component: topic
+    }]
+  },
+  {
+    path: '/difficult',
+    component: layout,
+    redirect: '',
+    hidden: true,
+    children: [{
+      path: '',
+      component: difficult
+    }]
+  },
+  {
+    path: '/topics',
+    component: layout,
+    redirect: '',
+    hidden: true,
+    children: [{
+      path: '',
+      component: topics
     }]
   },
   {

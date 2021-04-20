@@ -1,5 +1,6 @@
 #! coding: utf-8
 # code by vunm
+import os
 import sys
 import json
 from uuid import uuid4
@@ -8,6 +9,8 @@ from random import randrange
 from functools import wraps
 import db
 import utils
+import img_topic
+import random
 from datetime import date, timedelta, datetime
 from bson import ObjectId
 from bson.json_util import dumps as dumps_json
@@ -16,7 +19,7 @@ from flask import (Flask, request, Blueprint, url_for,
                    render_template, redirect, session, g, jsonify)
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
+# sys.path.append('../')
 app = Flask(__name__)
 app.config.from_object(__name__)
 CORS(app)
@@ -93,6 +96,10 @@ def login():
                     messange = {'status': False}
             else:
                 messange = {'status': False}
+    return dumps_json(messange)
+@app.route('/', methods=["GET"])
+def welcome():
+    messange = {'status': True, 'mess': 'Welcome'}
     return dumps_json(messange)
 @app.route('/user', methods=["GET"])
 def getInfo():
@@ -260,6 +267,78 @@ def confuse():
             "status": True,
             "data": list_result
         }
+        return dumps_json(info_response)
+    else:
+        return dumps_json({'status':False})
+@app.route('/topics', methods=["POST","GET","PUT","DELETE"])
+def topics():
+    if request.method == 'GET':
+        topics = db.get_all_topic()
+        newlist = sorted(topics, key=lambda k: k['order'])
+        for it in newlist:
+            it['word'] = []
+            it['link'] = img_topic.img[random.randint(0, len(img_topic.img) - 1)]
+        # newl = [it.update( {"word":[]}) for it in newlist]
+        info_response = {
+            "status": True,
+            "data": newlist
+        }
+        return dumps_json(info_response)
+    if request.method == 'POST':
+        data = json.loads(request.data)
+        # 'idi': 'expand01', 'topic': 'expand01', 'level': 12, 'favorite': 0
+        info = {
+            "idi": data.get('idi'),
+            "topic": data.get('topic'),
+            "level": int(data.get('level')),
+            "favorite": int(data.get('favorite')),
+            "order": db.count_document('ignor_topics', {})
+        }
+        info_response = db.insert_document('ignor_topics', info, 'topic')
+        print(info_response)
+        return dumps_json(info_response)
+    if request.method == 'PUT':
+        data = json.loads(request.data)
+        # 'idi': 'expand01', 'topic': 'expand01', 'level': 12, 'favorite': 0
+        idi = data.get('idi')
+        info = {
+            "topic": data.get('topic'),
+            "level": int(data.get('level')),
+            "favorite": int(data.get('favorite')),
+            "order": int(data.get('order'))
+        }
+        info_response = db.update_document('ignor_topics', {'idi': idi}, info)
+        return dumps_json(info_response)
+        # m = db.insert_document('igno_topics', info, 'topic')
+    if request.method == 'DELETE':
+        print('-----------------')
+        data = json.loads(request.data)
+        # 'idi': 'expand01', 'topic': 'expand01', 'level': 12, 'favorite': 0
+        idi = data.get('idi')
+        print('--------', idi)
+        info_response = db.delete_document('ignor_topics', {'idi': idi})
+        return dumps_json(info_response)
+    else:
+        return dumps_json({'status':False})
+@app.route('/difficult', methods=["POST","GET","PUT","DELETE"])
+def difficlut():
+    if request.method == 'GET':
+        # db.write_tempt()
+        words = db.get_document('tempt', {}).get("data")
+        info_response = {
+            "status": True,
+            "data": words
+        }
+        return dumps_json(info_response)
+    if request.method == 'POST':
+        print('-----------------------')
+        print(request.data)
+        data = json.loads(request.data)
+        # 'idi': 'expand01', 'topic': 'expand01', 'level': 12, 'favorite': 0
+        confirm = data.get('confirm'),
+        db.delete_document('tempt',{})
+        db.write_tempt()
+        info_response = {'status': True}
         return dumps_json(info_response)
     else:
         return dumps_json({'status':False})

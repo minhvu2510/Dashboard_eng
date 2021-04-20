@@ -1,21 +1,14 @@
 <template>
   <div>
-    <!--<el-row class="page-title">-->
-      <!--<h4 style="float: left">-->
-        <!--Topic {{this.$route.params.nameTopic}}-->
-      <!--</h4>-->
-      <!--<div style="float: right;margin-top: 10px">-->
-          <!--<el-button type="success" icon="el-icon-circle-plus" plain>Thêm hotline cho khách hàng</el-button>-->
-      <!--</div>-->
-    <!--</el-row>-->
-    <el-row>
+    <div>
+      <el-row>
         <div class="app-container" >
           <el-row :gutter="20">
             <el-col :xs="24" :sm="24" :md="24">
               <el-card shadow="never">
                 <div slot="header" class="clearfix" style="position: relative;">
                   <span style="font-weight: bold; font-size: 20px">Topic {{this.$route.params.nameTopic}} {{this.lent}}</span>
-                  <el-button @click="dialogFormVisible = true" size="mini" style="padding-left: 10px" type="primary"><i class="fas fa-plus-circle"></i> Thêm mới</el-button>
+                  <el-button @click="dialogVisible = true" size="mini" style="padding-left: 10px" type="primary"><i class="fas fa-plus-circle"></i> Thêm mới</el-button>
                   <el-button @click="getdata()" type="primary" plain>Show level</el-button>
                   <el-input-number style="width: 90px" size="mini" v-model="level2" controls-position="right" :min="1" :max="15"></el-input-number>
                   <div style="float: right">
@@ -44,7 +37,7 @@
                       </el-table-column>
                       <el-table-column
                         label="VN"
-                         width="200">
+                        width="200">
                         <template slot-scope="scope">
                           <div v-if="scope.row.edit === false">
                             <div v-if="check1">{{(scope.row.value)}}</div>
@@ -163,39 +156,28 @@
             </el-col>
           </el-row>
         </div>
-      <el-dialog title="Add vocabulary" :visible.sync="dialogFormVisible">
-        <el-form>
-          <el-form-item label="EN">
-            <el-input v-model="en" clearable></el-input>
-          </el-form-item>
-          <el-form-item label="VN">
-            <el-input @keyup.native.enter="addVoca" v-model="vn" clearable></el-input>
-          </el-form-item>
-          <el-form-item label="Level">
-            <el-rate
-              v-model="level"
-              :max=15
-              :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-            </el-rate>
-            <span>{{level}}</span>
-          </el-form-item>
-        </el-form>
-        <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">Cancel</el-button>
-    <el-button type="primary" @click="addVoca()">Confirm</el-button>
+        <el-dialog
+          title="Tips"
+          :visible.sync="dialogVisible"
+          width="30%">
+          <span>This is a message</span>
+          <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="generateNewwords">Confirm</el-button>
   </span>
-      </el-dialog>
-    </el-row>
-    <!--<el-button @click="addVoca()">Cancel</el-button>-->
+        </el-dialog>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script>
+  import { getDifficult, generateNew } from '@/api/department'
   export default {
-    name: 'showTable',
+    name: 'difficult',
     data() {
       return {
-        dialogFormVisible: false,
+        dialogVisible: false,
         level: 15,
         level2: 1,
         en: '',
@@ -210,34 +192,57 @@
     mounted() {
       this.getdata()
     },
+
     methods: {
       getdata() {
-        this.$http.get(process.env.TEST_LOCAL + '/preview', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: this.level2 }})
-          .then(function(response) {
-            let words = []
-            this.words1 = []
-            this.words2 = []
-            words = response.body.data
-            this.lent = words.length
-            for (const j in words) {
-              words[j]['edit'] = false
+        getDifficult().then(response => {
+          console.log(response)
+          let words = []
+          this.words1 = []
+          this.words2 = []
+          words = response.data.data
+          this.lent = words.length
+          for (const j in words) {
+            words[j]['edit'] = false
+          }
+          console.log(parseInt(words.length / 2))
+          if (words.length > 1) {
+            for (let i = 0; i < words.length / 2; i++) {
+              this.words1.push(words[i])
             }
-            console.log(parseInt(words.length / 2))
-            if (words.length > 1) {
-              for (let i = 0; i < words.length / 2; i++) {
-                this.words1.push(words[i])
-              }
-              // this.words1.sort(function() { return 0.5 - Math.random() })
-              for (let i = (words.length % 2) ? parseInt(words.length / 2) + 1 : parseInt(words.length / 2); i < words.length; i++) {
-                this.words2.push(words[i])
-                // this.words2[i]['edit'] = false
-              }
-              // this.words2.sort(function() { return 0.5 - Math.random() })
-            } else {
-              this.words1 = words
+            // this.words1.sort(function() { return 0.5 - Math.random() })
+            for (let i = (words.length % 2) ? parseInt(words.length / 2) + 1 : parseInt(words.length / 2); i < words.length; i++) {
+              this.words2.push(words[i])
+              // this.words2[i]['edit'] = false
             }
-            // console.log(this.words1)
-          })
+            // this.words2.sort(function() { return 0.5 - Math.random() })
+          } else {
+            this.words1 = words
+          }
+        })
+      },
+      generateNewwords() {
+        const params = {
+          'confirm': 'yes'
+        }
+        return new Promise((resolve, reject) => {
+          generateNew(params)
+            .then(res => {
+              console.log(res)
+              if (res.data.status === true) {
+                this.$notify({
+                  title: 'Success',
+                  message: res.data.message,
+                  type: 'success'
+                });
+                this.dialogVisible = false
+                this.getdata()
+              }
+            })
+            .catch(err => {
+              reject(err)
+            })
+        })
       },
       pronounce(nounce) {
         var msg = new SpeechSynthesisUtterance()
@@ -252,18 +257,20 @@
         speechSynthesis.speak(msg)
         console.log(nounce)
       },
-      confuse() {
-        this.words1.sort(function() { return 0.5 - Math.random() })
-        this.words2.sort(function() { return 0.5 - Math.random() })
+      handleCancelEditUser(word) {
+        word.edit = false
       },
-      addVoca() {
+      handleEditUser(word) {
+        word.edit = true
+      },
+      addTopic() {
         const newWord = {
-          'key': this.en,
-          'value': this.vn,
-          'level': this.level,
-          'table': this.$route.params.nameTopic
+          'topic': this.ad_topic,
+          'level': this.ad_level,
+          'favorite': this.ad_favorite,
+          'idi': this.ad_topic
         }
-        this.$http.post(process.env.TEST_LOCAL + '/preview', newWord)
+        this.$http.post(process.env.TEST_LOCAL + '/topics', newWord)
           .then(function(response) {
             if (response.body.status === true) {
               this.$notify({
@@ -283,17 +290,16 @@
             this.notify('warning', respone.body.message)
           })
       },
-      update(word) {
-        // console.log(word.en)
+      updateTopic(row) {
         const newIp = {
-          'key': word.key,
-          'value': word.value,
-          'level': word.level,
-          'table': this.$route.params.nameTopic,
-          '_id': word._id.$oid
+          'topic': row.topic,
+          'level': row.level,
+          'favorite': row.favorite,
+          'idi': row.idi,
+          'order': row.order
         }
         // this.$http.put(process.env.C2C + '/domain', newIp, { headers: { 'Authorization': getToken() }})
-        this.$http.put(process.env.TEST_LOCAL + '/preview', newIp)
+        this.$http.put(process.env.TEST_LOCAL + '/topics', newIp)
           .then(function(response) {
             // console.log(response)
             if (response.body.status === true) {
@@ -302,7 +308,7 @@
                 message: response.body.message,
                 type: 'success'
               })
-              // this.getdata()
+              this.getdata()
             } else {
               this.$notify.error({
                 title: 'Error',
@@ -316,13 +322,14 @@
             })
           })
       },
-      delete(word) {
+      handleDeleteUser(row) {
         const newIp = {
-          'table': this.$route.params.nameTopic,
-          '_id': word._id.$oid
+          'idi': row.idi
         }
-        this.$http.delete(process.env.TEST_LOCAL + '/preview', { body: newIp })
+        // this.$http.put(process.env.C2C + '/domain', newIp, { headers: { 'Authorization': getToken() }})
+        this.$http.delete(process.env.TEST_LOCAL + '/topics', { body: newIp })
           .then(function(response) {
+            // console.log(response)
             if (response.body.status === true) {
               this.$notify({
                 title: 'Success',
@@ -330,6 +337,11 @@
                 type: 'success'
               })
               this.getdata()
+            } else {
+              this.$notify.error({
+                title: 'Error',
+                message: response.body.message
+              })
             }
           }, respone => {
             this.$notify.error({
@@ -338,20 +350,10 @@
             })
           })
       },
-      handleDeleteUser(word) {
-        word.edit = false
-        this.delete(word)
+      confuse() {
+        this.words1.sort(function() { return 0.5 - Math.random() })
+        this.words2.sort(function() { return 0.5 - Math.random() })
       },
-      handleCancelEditUser(word) {
-        word.edit = false
-      },
-      handleEditUser(word) {
-        word.edit = true
-      },
-      handleUpdateUserRole(word) {
-        this.update(word)
-        word.edit = false
-      }
     }
   }
 </script>

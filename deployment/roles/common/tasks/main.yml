@@ -6,18 +6,25 @@
     mode: 0655
     state: directory
   tags:
-    - rsync
+    - test
     - telebot
-
-- name: sync all
+- name: sync docker
   synchronize:
-    src={{ inventory_dir }}/../
+    src={{ inventory_dir }}/../docker
     dest=/srv/dashboard_en/
     rsync_path="sudo rsync"
   become: false
   tags:
-    - rsync
-    - telebot
+    - test
+
+- name: sync api
+  synchronize:
+    src={{ inventory_dir }}/../src
+    dest=/srv/dashboard_en/
+    rsync_path="sudo rsync"
+  become: false
+  tags:
+    - test
 
 - name: build container api, fe
   shell: |
@@ -26,4 +33,4 @@
     . /srv/dashboard_en/docker/.env &&
     docker-compose up -d --build
   tags:
-    - dashboard
+    - test

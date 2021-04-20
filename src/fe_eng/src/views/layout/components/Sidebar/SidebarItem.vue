@@ -14,6 +14,18 @@
             <span slot="title">Study by topic</span>
           </el-menu-item>
         </router-link>
+        <router-link :to="'/topics'">
+          <el-menu-item index="topics">
+            <i class="fa fa-book"></i>
+            <span slot="title">Topics</span>
+          </el-menu-item>
+        </router-link>
+        <router-link :to="'/difficult'">
+          <el-menu-item index="difficult">
+            <i class="fa fa-adjust"></i>
+            <span slot="title">Top difficult</span>
+          </el-menu-item>
+        </router-link>
         <router-link :to="'/confuse'">
           <el-menu-item index="confuse">
             <i class="fas fa-mortar-pestle"></i>

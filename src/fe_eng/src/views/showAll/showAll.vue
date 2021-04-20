@@ -201,7 +201,6 @@
     },
     methods: {
       getdata() {
-        console.log('anh mat em that nhan tam va nhe nahg')
         const params = {
           level: this.level2
         }
@@ -256,7 +255,7 @@
           'level': this.level,
           'table': this.$route.params.nameTopic
         }
-        this.$http.post(process.env.TEST_LOCAL + '/test1', newWord)
+        this.$http.post(process.env.TEST_LOCAL + '/preview', newWord)
           .then(function(response) {
             if (response.body.status === true) {
               this.$notify({
@@ -286,7 +285,7 @@
           '_id': word._id.$oid
         }
         // this.$http.put(process.env.C2C + '/domain', newIp, { headers: { 'Authorization': getToken() }})
-        this.$http.put(process.env.TEST_LOCAL + '/test1', newIp)
+        this.$http.put(process.env.TEST_LOCAL + '/preview', newIp)
           .then(function(response) {
             // console.log(response)
             if (response.body.status === true) {
@@ -314,7 +313,7 @@
           'table': this.$route.params.nameTopic,
           '_id': word._id.$oid
         }
-        this.$http.delete(process.env.TEST_LOCAL + '/test1', { body: newIp })
+        this.$http.delete(process.env.TEST_LOCAL + '/preview', { body: newIp })
         // this.$http.delete(process.env.TEST_LOCAL + '/test1', newIp)
           .then(function(response) {
             if (response.body.status === true) {

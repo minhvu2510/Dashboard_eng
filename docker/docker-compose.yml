@@ -1,4 +1,4 @@
-version: '2'
+version: '3.4'
 
 services:
 
@@ -9,6 +9,18 @@ services:
       dockerfile: Dockerfile.mongo
     ports:
       - "27017:27017"
+      - "8200:8200"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    privileged: true
+    restart: unless-stopped
+  api:
+    container_name: api
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8100:8100"
     ulimits:
       nproc: 65535
       nofile:
@@ -16,37 +28,24 @@ services:
         hard: 40000
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    network_mode: host
-    restart: unless-stopped
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-  api:
-    container_name: api
+      - API_PORT=${API_PORT}
+    privileged: true
+    restart: unless-stopped
+  frontend:
+    container_name: frontend_vuejs
     build:
       context: ../
-      dockerfile: docker/Dockerfile
-    ports:
-      - 9000:9000
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /srv/dashboard_eng:/code/dashboard_eng
-    environment:
-      - MONGO_CLIENT=${MONGO_CLIENT}
-      - MONGO_DATABASE=${MONGO_DATABASE}
-    depends_on:
-      - mongodb
-    restart: always
-    network_mode: host
-  fe:
-    image: nginx
-    container_name: nginx
-    volumes:
-      - /srv/dashboard_eng:/code/dashboard_eng
-      - ./src/fe_eng/nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - api
-      - mongodb
+      dockerfile: docker/Dockerfile.nginx
     ports:
       - "80:80"
-      - "443:443"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    privileged: true
+    restart: unless-stopped
+

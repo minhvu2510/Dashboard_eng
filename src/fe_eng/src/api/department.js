@@ -58,3 +58,23 @@ export function deleteDepartment(params) {
   })
 }
 
+export function getTopics() {
+  return request({
+    url: '/topics',
+    method: 'get'
+  })
+}
+export function getDifficult() {
+  return request({
+    url: '/difficult',
+    method: 'get'
+  })
+}
+export function generateNew(params) {
+  return request({
+    url: '/difficult',
+    method: 'post',
+    data: params
+  })
+}
+

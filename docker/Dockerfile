@@ -1,4 +1,4 @@
-FROM python:3.6.8-jessie
+FROM python:2
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -14,7 +14,7 @@ RUN pip install gunicorn futures
 COPY src/be_eng/requirements.txt /code/api/
 RUN pip install -r /code/api/requirements.txt
 
-COPY api/ /code/api/
+COPY src/be_eng/src/ /code/api/
 
 WORKDIR /code/api
 

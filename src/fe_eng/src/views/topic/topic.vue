@@ -1,7 +1,36 @@
 <template>
   <div style="background-image: url('https://syndlab.com/files/view/5db9b150252346nbDR1gKP3OYNuwBhXsHJerdToc5I0SMLfk7qlv951730.jpeg');">
+    <!--<el-row>-->
+      <!--<el-col :xs="24" :sm="24" :lg="6" :md="12" style="padding-left: 35px;padding-top: 10px" v-for="i in array" :key="i.title">-->
+        <!--<el-card class="box-card">-->
+          <!--<el-row>-->
+            <!--<el-col :span="15">-->
+              <!--<img :src="i.link" class="image">-->
+            <!--</el-col>-->
+            <!--<el-col :span="9">-->
+              <!--<p class="word" v-for="k in i.word">{{k}}</p>-->
+            <!--</el-col>-->
+          <!--</el-row>-->
+          <!--<div style="padding: 0px;">-->
+            <!--<span style="font-size: 14px; color: #e64c4b">{{i.title}}</span>-->
+            <!--<div class="bottom clearfix">-->
+              <!--<router-link :to="'/topic/'+i.title">-->
+                <!--&lt;!&ndash;<el-input-number size="mini" v-model="num4"></el-input-number>&ndash;&gt;-->
+                <!--<time class="time">{{currentDate}} - {{ i.count }}</time>-->
+              <!--</router-link>-->
+              <!--<br>-->
+              <!--<div style="padding-top: 10px">-->
+                <!--<router-link :to="'/topic/'+i.title">-->
+                  <!--<el-button type="text" class="button">Explore</el-button>-->
+                <!--</router-link>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+    <!--</el-row>-->
     <el-row>
-      <el-col :xs="24" :sm="24" :lg="6" :md="12" style="padding-left: 35px;padding-top: 10px" v-for="i in array" :key="i.title">
+      <el-col :xs="24" :sm="24" :lg="6" :md="12" style="padding-left: 35px;padding-top: 10px" v-for="i in topics" :key="i.topic">
         <el-card class="box-card">
           <el-row>
             <el-col :span="15">
@@ -12,15 +41,15 @@
             </el-col>
           </el-row>
           <div style="padding: 0px;">
-            <span style="font-size: 14px; color: #e64c4b">{{i.title}}</span>
+            <span style="font-size: 14px; color: #e64c4b">{{i.topic}}</span>
             <div class="bottom clearfix">
-              <router-link :to="'/topic/'+i.title">
+              <router-link :to="'/topic/'+i.topic">
                 <!--<el-input-number size="mini" v-model="num4"></el-input-number>-->
                 <time class="time">{{currentDate}} - {{ i.count }}</time>
               </router-link>
               <br>
               <div style="padding-top: 10px">
-                <router-link :to="'/topic/'+i.title">
+                <router-link :to="'/topic/'+i.topic">
                   <el-button type="text" class="button">Explore</el-button>
                 </router-link>
               </div>
@@ -41,6 +70,7 @@
 </template>
 
 <script>
+  import { getTopics } from '@/api/department'
   export default {
     name: 'index',
     data() {
@@ -148,11 +178,14 @@
             'word': [], 'count52': 52 }
         ],
         currentDate: new Date().toDateString(),
-        views: []
+        views: [],
+        topics: [],
+        path: 'https://i.pinimg.com/originals/e5/f0/3b/e5f03b0c40607a43e18807effc2a49b1.jpg'
       }
     },
     mounted() {
       this.getramdom()
+      this.getallTopic()
     },
     methods: {
       getdata() {
@@ -178,6 +211,17 @@
             }
           })
       },
+      getallTopic() {
+        getTopics().then(res => {
+          // this.topics = res.data.data
+          const words = res.data.data
+          for (const j in words) {
+            words[j]['edit'] = false
+          }
+          this.topics = words
+          console.log(this.topics)
+        })
+      },
       getramdom() {
         this.$http.get(process.env.TEST_LOCAL + '/showexample', { headers: { 'Authorization': 'vudz' }})
           .then(function(response) {
@@ -191,6 +235,7 @@
                 if (title === words[wor].table) {
                   for (const item in words[wor].data) {
                     this.array[arr].word.push(words[wor].data[item].key)
+                    this.topics[arr].word.push(words[wor].data[item].key)
                   }
                 }
               }
@@ -252,8 +297,8 @@
   }
 
   .image {
-    width: 110px;
-    height: 150px;
+    width: 120px;
+    height: 170px;
     border-radius: 8px;
     /*border: 10px solid transparent;*/
     /*display: block;*/
@@ -271,7 +316,7 @@
     clear: both
   }
   .box-card {
-    width: 240px;
+    width: 245px;
     height: 290px;
     padding: 0px;
     border-radius: 10px;
