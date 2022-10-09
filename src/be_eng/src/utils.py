@@ -41,7 +41,6 @@ def get_topics():
     return result
 def add_filed():
     res = update_document('ignor_topics', {},{"order": 1})
-    print res
 def get_top():
     list_ext_id = get_records_top('electronics', "level", 1, 21).get("data")
     print(list_ext_id)

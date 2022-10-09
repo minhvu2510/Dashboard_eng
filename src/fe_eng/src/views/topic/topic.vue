@@ -189,7 +189,7 @@
     },
     methods: {
       getdata() {
-        this.$http.get(process.env.TEST_LOCAL + '/test1', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: this.level2 }})
+        this.$http.get(process.env.TEST_LOCAL + '/preview', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: this.level2 }})
           .then(function(response) {
             let words = []
             this.words1 = []
@@ -247,7 +247,7 @@
           })
       },
       getexp(table) {
-        this.$http.get(process.env.TEST_LOCAL + '/test1', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: this.level2 }})
+        this.$http.get(process.env.TEST_LOCAL + '/preview', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: this.level2 }})
           .then(function(response) {
             let words = []
             this.words1 = []

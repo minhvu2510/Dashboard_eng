@@ -234,7 +234,7 @@
                   title: 'Success',
                   message: res.data.message,
                   type: 'success'
-                });
+                })
                 this.dialogVisible = false
                 this.getdata()
               }
@@ -353,7 +353,7 @@
       confuse() {
         this.words1.sort(function() { return 0.5 - Math.random() })
         this.words2.sort(function() { return 0.5 - Math.random() })
-      },
+      }
     }
   }
 </script>

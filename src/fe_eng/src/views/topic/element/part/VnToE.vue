@@ -88,7 +88,7 @@
     },
     methods: {
       getdata() {
-        this.$http.get(process.env.TEST_LOCAL + '/test1', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: 1 }})
+        this.$http.get(process.env.TEST_LOCAL + '/preview', { headers: { 'Authorization': 'vudz' }, params: { table: this.$route.params.nameTopic, level: 1 }})
           .then(function(response) {
             this.words = response.body.data
             console.log(this.words)

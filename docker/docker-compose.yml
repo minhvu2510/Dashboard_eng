@@ -48,4 +48,20 @@ services:
       - /etc/localtime:/etc/localtime:ro
     privileged: true
     restart: unless-stopped
+  frontend2:
+    container_name: frontend_vuejs
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "80:80"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    privileged: true
+    restart: unless-stopped
 
