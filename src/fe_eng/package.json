@@ -1,5 +1,4 @@
 {
-  "name": "vccloud_pbx",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -114,9 +113,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "author": "thync <thync@outlook.com>",
   "license": "MIT",
-  "description": "Vccloud Call Center",
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
